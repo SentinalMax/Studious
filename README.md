@@ -9,13 +9,13 @@ git clone https://github.com/SentinalMax/Studious.git
 cd Studious
 ```
 ```
-chmod +x CompTIA-Prep.py
+chmod +x studious.py
 ```
 ---
 ## **ADD** Mode
 ### To *enable* 'ADD Mode' simply type 'add' after running the following:
 ```
-python CompTIA-Prep.py OR python3 CompTIA-Prep.py
+python studious.py OR python3 studious.py
 ```
 ### You'll then want to follow the prompts and input your **question**, the number of possible **answers**, type / paste each answer, and select the **correct** answer so the program knows how to grade your performance.
 ---
