@@ -97,6 +97,10 @@ def StudyMode():
                 RESULT = input("Answer (q=quit): ")
                 # Check if RESULT is the correct answer
                 if (RESULT.isdigit() and int(RESULT) <= ITTR_VALUE and int(RESULT) > 0):
+                  
+                    #print("RESULT = " + RESULT)
+                    #print("CORRECT_ANSWER = " + str(RAND['correct_answer']))
+
                     if (int(RESULT) == int(RAND['correct_answer'])):
                         RIGHT_CNT+=1
                         print("You got it RIGHT! \n")
