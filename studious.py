@@ -6,6 +6,8 @@ import base64
 # Todo Shuffle Answers
 KEY = 'LS0gKGMpIDIwMjMgQWxleCBWZXJnYXJhIC0t'
 
+FILENAME = "QA2.json"
+
 def Main():
     print(base64.b64decode(KEY))
     MODE = input("Select a mode: (ADD) (STUDY) \n")
@@ -76,7 +78,8 @@ def EvalChoices():
 def StudyMode():
     global COUNT
     global TRACK_QUESTIONS
-    with open("QA.json", "r") as f:
+    global FILENAME
+    with open(FILENAME, "r") as f:
         QA = json.load(f)
 
     for x in QA['problems']:
@@ -131,7 +134,7 @@ def StudyMode():
             StudyMode()
         PREVIOUS_QUESTIONS.append(str(RAND).lower())
 
-def Write_JSON(new_data, filename='QA.json'):
+def Write_JSON(new_data, filename=FILENAME):
     with open(filename,'r+') as file:
           # First we load existing data into a dict.s
         file_data = json.load(file)
