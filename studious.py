@@ -60,6 +60,7 @@ PREVIOUS_QUESTIONS = []
 COUNT = 0
 RIGHT_CNT = 0
 WRONG_CNT = 0
+TRACK_QUESTIONS = 0
 
 def EvalChoices():
     global RIGHT_CNT
@@ -74,14 +75,17 @@ def EvalChoices():
 
 def StudyMode():
     global COUNT
+    global TRACK_QUESTIONS
     with open("QA.json", "r") as f:
         QA = json.load(f)
+
     for x in QA['problems']:
         # Pick a random problem
         RAND = random.choice(list(QA['problems']))
         
         #print(PREVIOUS_QUESTIONS)
         if str(RAND).lower() not in PREVIOUS_QUESTIONS:
+            print("PROBLEMS LEFT = " + str(len(QA['problems'])-TRACK_QUESTIONS) + "\n")
             #print("CURRENT_QUESTION= " + str(RAND) + " PREVIOUS_QUESTION= " + PREVIOUS_QUESTIONS + "\n")
             print("Question: " + RAND['question'])
                 
@@ -94,6 +98,7 @@ def StudyMode():
             def CheckInput():
                 global RIGHT_CNT
                 global WRONG_CNT
+                global TRACK_QUESTIONS
                 RESULT = input("Answer (q=quit): ")
                 # Check if RESULT is the correct answer
                 if (RESULT.isdigit() and int(RESULT) <= ITTR_VALUE and int(RESULT) > 0):
@@ -107,6 +112,7 @@ def StudyMode():
                     elif (int(RESULT) != int(RAND['correct_answer'])):
                         WRONG_CNT+=1
                         print("You got it WRONG. The answer was: '" + str(RAND['correct_answer']) + "'\n")
+                    TRACK_QUESTIONS+=1 #ADD TO TRACK QUESTIONS
                 elif (RESULT.lower() == "q"):
                     EvalChoices()
                     exit()
@@ -118,7 +124,7 @@ def StudyMode():
         elif str(RAND).lower() in PREVIOUS_QUESTIONS:
             #print("SAME QUESTION")
             #print(len(QA['problems']))
-            if COUNT >= len(QA['problems'])*2:
+            if COUNT >= len(QA['problems'])*5: #THIS MULTIPLE IS IMPORTANT
                 EvalChoices()
                 exit()
             COUNT+=1
