@@ -22,7 +22,7 @@ python studious.py OR python3 studious.py
 
 ## **STUDY** Mode
 ### Same steps as above except you'll want to type '**study**' instead of 'add'.
-- You will then be prompted with the questions that you've input as well as any questions in the *.JSON* file that might be left over from my studying.
+- You will then be prompted with the questions that you've input.
 - If you'd like you can **clear** any questions by deleting everything between the `"problems": []` braces.
 ```
 {

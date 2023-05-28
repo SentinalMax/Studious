@@ -6,7 +6,7 @@ import base64
 # Todo Shuffle Answers
 KEY = 'LS0gKGMpIDIwMjMgQWxleCBWZXJnYXJhIC0t'
 
-FILENAME = "QA2.json"
+FILENAME = "QA.json"
 
 def Main():
     print(base64.b64decode(KEY))
