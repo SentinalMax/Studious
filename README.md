@@ -1,4 +1,4 @@
-# Studious v1.00
+# Studious v1.2
 A simple Python study program initially written as a prepatory tool for the CompTIA Security+ Certification.
 
 ## Installation:
